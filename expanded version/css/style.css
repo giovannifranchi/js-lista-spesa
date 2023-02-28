@@ -13,3 +13,8 @@ tr > *:not(:first-child){
     text-align: center;
 }
 
+.table {
+    background-color: #d5d5d0;
+    border-color: transparent;
+    border-radius: 10px;
+}
