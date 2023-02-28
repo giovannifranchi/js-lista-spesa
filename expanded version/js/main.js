@@ -1,14 +1,17 @@
-const items = [];
+
 const addBtn = document.getElementById('add-btn');
 const inputItem = document.getElementById('input-item');
 const tableBody = document.getElementById('table-body');
+const errorHandler = document.querySelector('.error-handler');
+const errorMassage = 'Please, enter a valid item';
+
+
 
 
 addBtn.addEventListener('click', ()=>{
     if(isFinite(inputItem.value) || inputItem.value == ''){
-        console.log('error');
+        errorHandler.innerHTML = errorMassage;
     }else {
-        items.push(inputItem.value);
         const row = document.createElement('tr');
         tableBody.append(row);
         const tCellItem = document.createElement('td');
@@ -21,6 +24,7 @@ addBtn.addEventListener('click', ()=>{
         btnDelete.type = 'button';
         btnDelete.classList.add('btn');
         btnDelete.classList.add('btn-secondary');
+        btnDelete.classList.add('delete');
         tCellDelete.append(btnDelete);
         const icon = document.createElement('i');
         icon.classList.add('fa-solid');
@@ -28,5 +32,15 @@ addBtn.addEventListener('click', ()=>{
         btnDelete.append(icon);
         inputItem.value = '';
     }
+    const btnDelete = document.querySelectorAll('.delete');
+    for(let i = 0; i < btnDelete.length; i++){
+        const button = btnDelete[i];
+        button.addEventListener('click', ()=>{
+            const btnCell = button.parentElement;
+            btnCell.parentElement.remove();
+        });
+    }
 });
+
+
 
