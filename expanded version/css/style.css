@@ -1,0 +1,14 @@
+body {
+    background-color: #4682b4;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+tr:first-child {
+    width: 70%;
+}
+
+tr > *:not(:first-child){
+    width: 15%;
+    text-align: center;
+}
